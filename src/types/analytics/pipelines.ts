@@ -34,7 +34,7 @@ export interface ConversationForModal {
   id: string;
   display_id?: string;
   inbox_id: string;
-  status: 'open' | 'resolved' | 'pending' | 'snoozed';
+  status: 'open' | 'resolved' | 'pending' | 'snoozed' | 'ended';
   contact?: {
     id: string;
     name: string;
