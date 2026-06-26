@@ -60,7 +60,7 @@ export interface ConversationsContextValue {
   selectConversation: (conversationId: string | null) => void;
   updateConversationStatus: (
     conversationId: string,
-    status: 'open' | 'resolved' | 'pending' | 'snoozed',
+    status: 'open' | 'resolved' | 'pending' | 'snoozed' | 'ended',
     onFilterReload?: () => Promise<void>,
   ) => Promise<Conversation>;
   updateConversationPriority: (
