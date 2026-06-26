@@ -278,6 +278,7 @@
       "markAsResolved": "Marcar como resolvida",
       "markAsPending": "Marcar como pendente",
       "pauseConversation": "Pausar conversa",
+      "endConversation": "Encerrar conversa",
       "priorityUrgent": "Prioridade Urgente",
       "priorityHigh": "Prioridade Alta",
       "priorityMedium": "Prioridade Média",
@@ -414,6 +415,7 @@
         "resolved": "Resolvida",
         "pending": "Pendente",
         "snoozed": "Pausada",
+        "ended": "Encerrada",
         "changed": "Status alterado para: {{status}}",
         "error": "Erro ao alterar status da conversa"
       },
@@ -492,7 +494,8 @@
           "open": "Abertas",
           "pending": "Pendentes",
           "resolved": "Resolvidas",
-          "snoozed": "Adiadas"
+          "snoozed": "Adiadas",
+          "ended": "Encerradas"
         },
         "clearFilters": "Limpar filtros"
       }
@@ -719,7 +722,8 @@
         "open": "Aberto",
         "resolved": "Resolvido",
         "pending": "Pendente",
-        "snoozed": "Adiado"
+        "snoozed": "Adiado",
+        "ended": "Encerrado"
       },
       "assignee_type": {
         "me": "Atribuído para mim",
@@ -765,6 +769,10 @@
       "label": "Pausada",
       "description": "Conversa temporariamente pausada"
     },
+    "ended": {
+      "label": "Encerrada",
+      "description": "Conversa encerrada — histórico da IA limpo"
+    },
     "unknown": {
       "label": "Desconhecido",
       "description": "Status não identificado"
@@ -785,6 +793,7 @@
     "markAsResolved": "Marcar como resolvida",
     "markAsPending": "Marcar como pendente",
     "pauseConversation": "Pausar conversa",
+    "endConversation": "Encerrar conversa",
     "priority": "Prioridade",
     "priorityLabels": {
       "low": "Baixa",

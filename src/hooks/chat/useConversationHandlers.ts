@@ -76,6 +76,17 @@ export const useConversationHandlers = () => {
     [conversations],
   );
 
+  const handleMarkAsEnded = useCallback(
+    async (conversation: Conversation, onReload?: () => Promise<void>) => {
+      try {
+        await conversations.updateConversationStatus(conversation.id, 'ended', onReload);
+      } catch (error) {
+        console.error('❌ Error marking as ended:', error);
+      }
+    },
+    [conversations],
+  );
+
   const handleSetPriority = useCallback(
     async (
       conversation: Conversation,
@@ -165,6 +176,7 @@ export const useConversationHandlers = () => {
     handlePostpone,
     handleMarkAsOpen,
     handleMarkAsSnoozed,
+    handleMarkAsEnded,
     handleSetPriority,
     handlePinConversation,
     handleUnpinConversation,

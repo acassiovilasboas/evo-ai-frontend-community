@@ -45,7 +45,25 @@ const InactivityActions = ({ actions, onChange }: InactivityActionsProps) => {
     onChange(actions.filter(action => action.id !== id));
   };
 
-  const minuteOptions = [2, 5, 10, 15, 30, 60];
+  const minuteOptions = [2, 5, 10, 15, 30, 60, 180, 720, 4320];
+
+  const formatMinuteLabel = (min: number): string => {
+    if (min < 60) {
+      return `${min} ${min === 1
+        ? (t('edit.configuration.inactivityActions.minute') || 'minuto')
+        : (t('edit.configuration.inactivityActions.minutes') || 'minutos')}`;
+    }
+    if (min < 1440) {
+      const h = min / 60;
+      return `${h} ${h === 1
+        ? (t('edit.configuration.inactivityActions.hour') || 'hora')
+        : (t('edit.configuration.inactivityActions.hours') || 'horas')}`;
+    }
+    const d = min / 1440;
+    return `${d} ${d === 1
+      ? (t('edit.configuration.inactivityActions.day') || 'dia')
+      : (t('edit.configuration.inactivityActions.days') || 'dias')}`;
+  };
 
   return (
     <div className="space-y-6">
@@ -85,8 +103,7 @@ const InactivityActions = ({ actions, onChange }: InactivityActionsProps) => {
                         <SelectContent>
                           {minuteOptions.map(min => (
                             <SelectItem key={min} value={min.toString()}>
-                              {min}{' '}
-                              {t('edit.configuration.inactivityActions.minutes') || 'minutos'}
+                              {formatMinuteLabel(min)}
                             </SelectItem>
                           ))}
                         </SelectContent>

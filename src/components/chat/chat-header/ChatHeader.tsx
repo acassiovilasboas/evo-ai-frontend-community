@@ -7,6 +7,7 @@ import {
   CheckCircle,
   Clock,
   Pause,
+  XCircle,
   MoreVertical,
   ArrowUp,
   ArrowDown,
@@ -59,6 +60,7 @@ interface ChatHeaderProps {
   onMarkAsResolved: (conversation: Conversation) => void;
   onPostpone: (conversation: Conversation) => void;
   onMarkAsSnoozed: (conversation: Conversation) => void;
+  onMarkAsEnded: (conversation: Conversation) => void;
   onSetPriority: (
     conversation: Conversation,
     priority: 'low' | 'medium' | 'high' | 'urgent' | null,
@@ -89,6 +91,7 @@ const ChatHeader = ({
   onMarkAsResolved,
   onPostpone,
   onMarkAsSnoozed,
+  onMarkAsEnded,
   onSetPriority,
   onPinConversation,
   onUnpinConversation,
@@ -416,6 +419,16 @@ const ChatHeader = ({
             >
               <Pause className="h-4 w-4" />
               {t('chatHeader.actions.pauseConversation')}
+            </DropdownMenuItem>
+          )}
+
+          {currentStatus !== 'ended' && (
+            <DropdownMenuItem
+              onClick={() => onMarkAsEnded(conversation)}
+              className="flex items-center gap-2 text-red-600 focus:text-red-600"
+            >
+              <XCircle className="h-4 w-4" />
+              {t('chatHeader.actions.endConversation')}
             </DropdownMenuItem>
           )}
 

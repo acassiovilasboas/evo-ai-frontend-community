@@ -195,15 +195,15 @@ const eventsWithoutPreviousValue: ReadonlySet<AutomationEventType> = new Set([
 ]);
 
 const eventContextMap: Record<AutomationEventType, EventContext[]> = {
-  conversation_created: ['conversation', 'message'],
-  conversation_updated: ['conversation', 'message'],
-  conversation_opened: ['conversation', 'message'],
-  message_created: ['conversation', 'message'],
+  conversation_created: ['conversation', 'message', 'contact'],
+  conversation_updated: ['conversation', 'message', 'contact'],
+  conversation_opened: ['conversation', 'message', 'contact'],
+  message_created: ['conversation', 'message', 'contact'],
   pipeline_stage_updated: ['pipeline', 'conversation'],
   contact_created: ['contact'],
   contact_updated: ['contact'],
-  conversation_resolved: ['conversation', 'message'],
-  conversation_status_changed: ['conversation', 'message'],
+  conversation_resolved: ['conversation', 'message', 'contact'],
+  conversation_status_changed: ['conversation', 'message', 'contact'],
 };
 
 export function getAttributesForEvent(eventName: AutomationEventType): ConditionAttributeDescriptor[] {

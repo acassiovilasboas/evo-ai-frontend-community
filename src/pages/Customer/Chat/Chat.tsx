@@ -491,6 +491,13 @@ const Chat = () => {
     [conversationHandlers, reloadCurrentFilters],
   );
 
+  const handleMarkAsEnded = useCallback(
+    async (conversation: Conversation) => {
+      await conversationHandlers.handleMarkAsEnded(conversation, reloadCurrentFilters);
+    },
+    [conversationHandlers, reloadCurrentFilters],
+  );
+
   const handleSetPriority = useCallback(
     async (conversation: Conversation, priority: 'low' | 'medium' | 'high' | 'urgent' | null) => {
       await conversationHandlers.handleSetPriority(conversation, priority, reloadCurrentFilters);
@@ -810,6 +817,7 @@ const Chat = () => {
                 onMarkAsResolved={handleMarkAsResolved}
                 onPostpone={handlePostpone}
                 onMarkAsSnoozed={handleMarkAsSnoozed}
+                onMarkAsEnded={handleMarkAsEnded}
                 onSetPriority={handleSetPriority}
                 onPinConversation={handlePinConversation}
                 onUnpinConversation={handleUnpinConversation}

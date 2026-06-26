@@ -49,6 +49,12 @@ const StatusFilter: React.FC<StatusFilterProps> = ({
       color: 'text-gray-700',
       count: null,
     },
+    {
+      value: 'ended',
+      label: t('filters.status.options.ended'),
+      color: 'text-red-700',
+      count: null,
+    },
   ];
 
   const handleStatusToggle = (statusValue: string) => {
