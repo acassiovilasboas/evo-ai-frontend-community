@@ -2,7 +2,7 @@
  * Utilitário para traduzir e formatar status de conversas
  */
 
-export type ConversationStatus = 'open' | 'resolved' | 'pending' | 'snoozed' | 'ended';
+export type ConversationStatus = 'open' | 'resolved' | 'pending' | 'snoozed';
 
 export interface StatusConfig {
   label: string;
@@ -20,7 +20,6 @@ export const getStatusLabel = (status: string): string => {
     resolved: 'Resolvida',
     pending: 'Pendente',
     snoozed: 'Pausada',
-    ended: 'Encerrada',
   };
 
   return statusMap[status] || 'Desconhecido';
@@ -54,12 +53,6 @@ export const getStatusConfig = (status: string): StatusConfig => {
       description: 'Conversa temporariamente pausada',
       color: 'text-gray-600',
       bgColor: 'bg-gray-100',
-    },
-    ended: {
-      label: 'Encerrada',
-      description: 'Conversa encerrada — histórico da IA limpo',
-      color: 'text-red-600',
-      bgColor: 'bg-red-100',
     },
   };
 

@@ -275,7 +275,7 @@ export function ConversationsProvider({ children }: { children: React.ReactNode 
   const updateConversationStatus = useCallback(
     async (
       conversationId: string,
-      status: 'open' | 'resolved' | 'pending' | 'snoozed' | 'ended',
+      status: 'open' | 'resolved' | 'pending' | 'snoozed',
       onFilterReload?: () => Promise<void>,
     ) => {
       try {

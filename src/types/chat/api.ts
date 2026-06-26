@@ -29,7 +29,7 @@ export interface Conversation {
   uuid?: string;
   inbox_id: string;
   inbox_name?: string;
-  status: 'open' | 'resolved' | 'pending' | 'snoozed' | 'ended';
+  status: 'open' | 'resolved' | 'pending' | 'snoozed';
   assignee_id: string | null;
   team_id: string | null;
   display_id: string;
@@ -317,7 +317,7 @@ export interface CreateConversationRequest {
 export type ConversationCreateData = CreateConversationRequest;
 
 export interface UpdateConversationRequest {
-  status?: 'open' | 'resolved' | 'pending' | 'snoozed' | 'ended';
+  status?: 'open' | 'resolved' | 'pending' | 'snoozed';
   assignee_id?: string | null;
   team_id?: string | null;
   labels?: string[];

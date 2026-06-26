@@ -108,7 +108,7 @@ class ChatService {
 
   async updateConversationStatus(
     conversationId: string,
-    status: 'open' | 'resolved' | 'pending' | 'snoozed' | 'ended',
+    status: 'open' | 'resolved' | 'pending' | 'snoozed',
   ): Promise<ConversationResponse> {
     const response = await api.post(`/conversations/${conversationId}/toggle_status`, { status });
     return response.data;

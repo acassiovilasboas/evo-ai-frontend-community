@@ -20,7 +20,6 @@ import {
   CheckCircle,
   Clock,
   Pause,
-  XCircle,
   UserPlus,
   Users,
   Tag,
@@ -90,7 +89,7 @@ const ConversationActionsDropdown: React.FC<ConversationActionsDropdownProps> = 
 
   if (!conversation) return null;
 
-  const handleStatusChange = async (newStatus: 'open' | 'resolved' | 'pending' | 'snoozed' | 'ended') => {
+  const handleStatusChange = async (newStatus: 'open' | 'resolved' | 'pending' | 'snoozed') => {
     setIsUpdatingStatus(true);
     try {
       await conversations.updateConversationStatus(conversation.id, newStatus, onFilterReload);
@@ -264,16 +263,6 @@ const ConversationActionsDropdown: React.FC<ConversationActionsDropdownProps> = 
           </DropdownMenuItem>
         )}
 
-        {currentStatus !== 'ended' && (
-          <DropdownMenuItem
-            onClick={() => handleStatusChange('ended')}
-            disabled={isUpdatingStatus}
-            className="flex items-center gap-2 text-red-600 focus:text-red-600"
-          >
-            <XCircle className="h-4 w-4" />
-            {t('conversationActionsDropdown.endConversation')}
-          </DropdownMenuItem>
-        )}
 
         <DropdownMenuSeparator />
 

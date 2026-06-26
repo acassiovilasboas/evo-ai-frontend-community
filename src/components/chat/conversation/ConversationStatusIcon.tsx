@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Clock, MessageCircle, Pause, XCircle } from 'lucide-react';
+import { CheckCircle, Clock, MessageCircle, Pause } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@evoapi/design-system/tooltip';
 import { useLanguage } from '@/hooks/useLanguage';
 
@@ -44,14 +44,6 @@ const ConversationStatusIcon: React.FC<ConversationStatusIconProps> = ({ status,
           bgColor: 'bg-gray-100',
           label: t('conversationStatusIcon.snoozed.label'),
           description: t('conversationStatusIcon.snoozed.description'),
-        };
-      case 'ended':
-        return {
-          icon: XCircle,
-          color: 'text-red-600',
-          bgColor: 'bg-red-100',
-          label: t('conversationStatusIcon.ended.label'),
-          description: t('conversationStatusIcon.ended.description'),
         };
       default:
         return {
